@@ -1,0 +1,31 @@
+.wrapper {
+  --blur: 5;
+background: #000;
+  font-size: 5rem;
+  margin: 1rem 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 1rem 0;
+}
+
+.blurred-wrapper {
+  position: absolute;
+  filter: blur(1rem);
+  transform: scale(var(--blur), 0.001);
+}
+
+.blurred {
+  transform: scale(calc(1 / var(--blur)), 1000);
+}
+
+
+body{
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
