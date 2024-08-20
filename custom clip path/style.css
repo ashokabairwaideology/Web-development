@@ -1,0 +1,156 @@
+
+
+.mask{
+    --uiMaskClipPath: var(--maskClipPath);
+  
+    box-sizing: var(--maskBoxSizing, border-box);
+    display: var(--maskDisplay, inline-flex);
+    padding: var(--maskStrokeThickness, 3px);
+    clip-path: var(--uiMaskClipPath);
+    background-color: var(--maskStrokeColor, currentColor);
+  }
+  
+  .mask__img{
+    max-width: 100%;
+    display: block;
+    clip-path: var(--uiMaskClipPath);
+  }
+  
+  .mask, 
+  .mask__img{
+    transition: clip-path var(--maskAnimationDuration, .2s) var(--maskAnimationTimingFunction, ease-out);
+  }
+  
+  /* masks */
+  
+  .mask_type1{
+    --maskClipPath: polygon(0 10%, 10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%);
+  }
+  
+  .mask_type2{
+    --maskClipPath: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  
+  .mask_type3{
+    --maskClipPath: polygon(0 10%, 10% 10%, 10% 0, 90% 0, 90% 10%, 100% 10%, 100% 90%, 90% 90%, 90% 100%, 10% 100%, 10% 90%, 0 90%);
+  }
+  
+  .mask_type4{
+    --maskClipPath: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+  }
+  
+  /* effect 1*/
+  
+  .mask_type1-a1{
+    --maskAnimationDuration: .4s;
+  }
+  
+  .mask_type1:hover, 
+  .mask_type1:focus{
+    --maskClipPath: polygon(0 0, 100% 0, 100% 10%, 100% 100%, 90% 100%, 0% 100%, 0% 90%, 0% 10%);
+  }
+  
+  /* effect 2*/
+  
+  .mask_type2-a1{
+    --maskAnimationDuration: .4s;
+  }
+  
+  .mask_type2:hover, 
+  .mask_type2:focus{
+    --maskClipPath: polygon(100% 0, 100% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+  }
+  
+  /* effect 3*/
+  
+  .mask_type3-a1{
+    --maskAnimationDuration: .5s
+  }
+  
+  .mask_type3:hover, 
+  .mask_type3:focus{
+    --maskClipPath: polygon(90% 0, 100% 0, 100% 10%, 100% 90%, 100% 100%, 90% 100%, 10% 100%, 0 100%, 0 90%, 0 10%, 0 0, 10% 0);
+  }
+  
+  /* effect 4*/
+  
+  .mask_type4:hover, 
+  .mask_type4:focus{
+    --maskClipPath: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  /* effect 5*/
+  
+  .mask_type1-a2{
+    --maskAnimationDuration: .5s;
+  }
+  
+  .mask_type1-a2:hover, 
+  .mask_type1-a2:focus{
+    --maskClipPath: polygon(0 0, 90% 0, 100% 0, 100% 90%, 100% 100%, 10% 100%, 0 100%, 0 10%); 
+  }
+  
+  /* effect 6*/
+  
+  .mask_type2-a2{
+    --maskAnimationDuration: .9s;
+    --maskAnimationTimingFunction: cubic-bezier(1, 0.18, 0, 1.14);
+  }
+  
+  /*
+  =====
+  SETTINGS
+  =====
+  */
+  
+  .mask{
+    --maskStrokeColor: #ecebef;
+    --maskStrokeThickness: 5px;
+  }
+  
+  /*
+  =====
+  DEMO
+  =====
+  */
+  
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    background-color: #211e25;
+  }
+  
+  .page{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1.5rem;
+    margin: auto;  
+    text-align: center;
+  
+    display: grid; 
+    grid-gap: 3rem; 
+    grid-template-columns: repeat(auto-fit, 15rem);
+    justify-content: center;
+  }
+  
+  .page__caption{
+    display: inline-block; 
+    padding: .5rem 2rem;
+  
+    background-color: #ecebef;
+    font-size: 1rem; 
+    color: #211e25; 
+    text-transform: uppercase;
+  }
+  
+  .page__demo{ 
+    margin-top: 1.5rem;  
+  }
+  
+  .page__tile{ 
+    width: 9rem; 
+    height: 9rem; 
+  }
+  
