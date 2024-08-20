@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  transition: all 0.5s ease-in-out;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  object-fit: cover;
+  filter: drop-shadow(0 0 5px #cd8585);
+  transition: all 0.5s ease-in-out;
+}
+
+.container:hover .logo {
+  scale: 0;
+}
+
+.container:hover {
+  width: 400px;
+  height: 200px;
+  border-radius: 15px;
+  background: #111;
+  border: 1px solid red;
+}
+
+.text-section {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 220px;
+  opacity: 0;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.container:hover .text-section {
+  opacity: 1;
+}
+
+.bottle {
+  position: absolute;
+  top: -20px;
+  right: 30px;
+  width: 80px;
+  height: auto;
+  object-fit: cover;
+  opacity: 0;
+  rotate: 15deg;
+  transition: all 0.5s ease-in-out;
+}
+
+.container:hover .bottle {
+    opacity: 1;
+}
+
+h2{
+    margin-bottom: 5px;
+}
+
+p {
+  font-size: 12px;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

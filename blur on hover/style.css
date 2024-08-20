@@ -1,0 +1,26 @@
+body{
+    background: #222;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li{
+    margin: 10px;
+    list-style: none;
+    color: #fff;
+}
+
+ul:hover >li:not(:hover){
+    filter: blur(1.5px);
+}
