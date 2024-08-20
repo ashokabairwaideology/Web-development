@@ -1,77 +1,35 @@
-let input = document.getElementById("input");
-let result = document.getElementById("result");
+let outputCode = document.getElementById("css-code");
 
-let inputType = document.getElementById("inputType");
-let resultType = document.getElementById("resultType");
+        let sliders = document.querySelectorAll("input[type='range']");
+        sliders.forEach(function (slider) {
+            slider.addEventListener("input", createBlob);
+        });
 
-input.addEventListener("keyup", calculate);
-inputType.addEventListener("change", calculate);
-resultType.addEventListener("change", calculate);
+        let inputs = document.querySelectorAll("input[type='number']");
+        inputs.forEach(function (inp) {
+            inp.addEventListener("change", createBlob);
+        });
 
-function calculate() {
+        function createBlob(){
+            let radiusOne = sliders[0].value;
+            let radiusTwo = sliders[1].value;
+            let radiusThree = sliders[2].value;
+            let radiusFour = sliders[3].value;
 
-   let inputTypeValue = inputType.value;
-   let resultTypeValue = resultType.value;
+            let blobHeight = inputs[0].value;
+            let blobWidth = inputs[1].value;
 
-//  kilogram
-    if (inputTypeValue === "kilogram" && resultTypeValue === "gram") {
-        result.value = Number(input.value) * 1000;
-    } else if (inputTypeValue === "kilogram" && resultTypeValue === "milligram") {
-        result.value = Number(input.value) * 1000000;
-    } else if (inputTypeValue === "kilogram" && resultTypeValue === "decigram") {
-        result.value = Number(input.value) * 10000;
-    } else if (inputTypeValue === "kilogram" && resultTypeValue === "pounds") {
-        result.value = Number(input.value) * 2.2046266;
-    } else if (inputTypeValue === "kilogram" && resultTypeValue === "kilogram") {
-        result.value = input.value;
-    }
+            let borderRadius = `${radiusOne}% ${100 - radiusOne}% ${100 - radiusThree}% ${radiusThree}% / ${radiusFour}% ${radiusTwo}% ${100 - radiusTwo}% ${100 - radiusFour}%`;
 
-    if (inputTypeValue === "gram" && resultTypeValue === "kilogram") {
-        result.value = Number(input.value) * 0.001;
-    } else if (inputTypeValue === "gram" && resultTypeValue === "milligram") {
-        result.value = Number(input.value) * 1000;
-    } else if (inputTypeValue === "gram" && resultTypeValue === "decigram") {
-        result.value = Number(input.value) * 10;
-    } else if (inputTypeValue === "gram" && resultTypeValue === "pounds") {
-        result.value = Number(input.value) * 0.0022046266;
-    } else if (inputTypeValue === "gram" && resultTypeValue === "gram") {
-        result.value = input.value;
-    }
+            document.getElementById("blob").style.cssText = `border-radius: ${borderRadius}; height: ${blobHeight}px; width: ${blobWidth}px`;
 
-    if (inputTypeValue === "milligram" && resultTypeValue === "kilogram") {
-        result.value = Number(input.value) * 0.000001;
-    } else if (inputTypeValue === "milligram" && resultTypeValue === "gram") {
-        result.value = Number(input.value) * 0.001;
-    } else if (inputTypeValue === "milligram" && resultTypeValue === "decigram") {
-        result.value = Number(input.value) * 0.01;
-    } else if (inputTypeValue === "milligram" && resultTypeValue === "pounds") {
-        result.value = Number(input.value) * 0.0000022046266;
-    } else if (inputTypeValue === "milligram" && resultTypeValue === "milligram") {
-        result.value = input.value;
-    }
+            outputCode.value = `border-radius: ${borderRadius};`
+        }
 
-    if (inputTypeValue === "decigram" && resultTypeValue === "kilogram") {
-        result.value = Number(input.value) * 0.0001;
-    } else if (inputTypeValue === "decigram" && resultTypeValue === "gram") {
-        result.value = Number(input.value) * 0.1;
-    } else if (inputTypeValue === "decigram" && resultTypeValue === "milligram") {
-        result.value = Number(input.value) * 100;
-    } else if (inputTypeValue === "decigram" && resultTypeValue === "pounds") {
-        result.value = Number(input.value) * 0.00022046266;
-    } else if (inputTypeValue === "decigram" && resultTypeValue === "decigram") {
-        result.value = input.value;
-    }
+        document.getElementById("copy").addEventListener("click", function () {
+            outputCode.select();
+            document.execCommand('copy');
+            alert('Code Copied');
+        });
 
-    if (inputTypeValue === "pounds" && resultTypeValue === "kilogram") {
-        result.value = Number(input.value) * 0.453592;
-    } else if (inputTypeValue === "pounds" && resultTypeValue === "gram") {
-        result.value = Number(input.value) * 453.592;
-    } else if (inputTypeValue === "pounds" && resultTypeValue === "milligram") {
-        result.value = Number(input.value) * 453592.37;
-    } else if (inputTypeValue === "pounds" && resultTypeValue === "decigram") {
-        result.value = Number(input.value) * 4535.92;
-    } else if (inputTypeValue === "pounds" && resultTypeValue === "pounds") {
-        result.value = input.value;
-    }
-
-}
+        createBlob();
