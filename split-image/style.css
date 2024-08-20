@@ -1,0 +1,29 @@
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: #111;
+}
+.split-image-container{
+    display: flex;
+}
+
+.split-image-container .split-image{
+    margin: 20px 0;
+    height: 183px;
+    width: 137.5px;
+    background: url('split-image.jpg');
+    transition: all 400ms ease;
+}
+
+.split-image-container .split-image:nth-child(2){
+    background-position-x: -137.5px;
+    
+}
+
+.split-image-container:hover .split-image{
+    margin: 0 14px;
+    transform: scale(1.08) rotateZ(4deg);
+    box-shadow: 0px 5px 20px rgba(19, 19, 134, 0.5);
+}
+
