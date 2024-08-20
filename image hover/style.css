@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background: #000;
+}
+
+.card {
+    display: grid;
+    width: 15rem;
+    height: 15rem;
+    background-size: cover;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0.5rem;
+    padding: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img {
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card:hover .card-img {
+    scale: 0.85;
+
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.card-box {
+    background: rgba(255, 255, 255, 0.125);
+    padding: 0.8rem;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    opacity: 0;
+    font-family: "Poppins", sans-serif;
+    transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.box1 {
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.box2 {
+    grid-row: 2/2;
+    grid-column: 2/2;
+    align-items: end;
+
+}
+
+.card:hover .card-box {
+    opacity: 1;
+}
+
+p {
+    font-size: 12px;
+}
+/* 
+.card-box:has(h3, h5, p){
+    text-shadow: 1px 1px 1px #aaa, 1px -1px 1px #aaa, -1px -1px 1px #aaa, -1px 1px 1px #aaa;
+} */
