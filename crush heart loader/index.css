@@ -1,0 +1,25 @@
+@keyframes rotate {
+     50%{
+          transform: rotate(360deg);
+     }
+     100%{
+          transform: rotate(720deg);
+     }
+}
+
+.preloader spam{
+     position: absolute;
+     display: black;
+     height: 64px;
+     width: 64px;
+     background: #3fc1f2;
+     border: 1px solid #3fc1f2;
+     border-radius: 100%;
+
+}
+
+.preloader span:nth-child(1)
+{
+     transform: translate(-28px,-28px);
+     animation: shape_1 2.3s cubic-bezier(0.75,0,0.5,1) Infinite;
+}
